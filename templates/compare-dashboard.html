@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Compare Dashboard</h1>
+
+<table class="center">
+  <tr>
+    <th>Gene ID</th>
+    <th>Gene name</th>
+    <th>Organism name</th>
+    <th>Protein name</th>
+    <th>Length</th>
+    <th>Sequence</th>
+  </tr>
+  <tr>
+    <td>{{ first_gene.uniprot_id }}</td>
+    <td>{{ first_gene.gene_name }}</td>
+    <td>{{ first_gene.organism_name }}</td>
+    <td>{{ first_gene.protein_name }}</td>
+    <td>{{ first_gene_length }}</td>
+    <td class="sequence">{{ first_gene.fasta }}</td>
+  </tr>
+  <tr>
+    <td>{{ second_gene.uniprot_id }}</td>
+    <td>{{ second_gene.gene_name }}</td>
+    <td>{{ second_gene.organism_name }}</td>
+    <td>{{ second_gene.protein_name }}</td>
+    <td>{{ second_gene_length }}</td>
+    <td class="sequence">{{ second_gene.fasta }}</td>
+  </tr>
+</table>
+
+<div id='chart' class='chart'></div>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+  var graphs = {{ fig | safe }};
+  Plotly.plot('chart',graphs,{});
+</script>
+
+{% endblock %}

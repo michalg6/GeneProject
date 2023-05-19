@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <h1>Choose protein to add to database</h1>
+    <br>
+
+<table class="center">
+  <tr>
+    <th>Gene ID</th>
+    <th>Gene name</th>
+    <th>Organism name</th>
+    <th>Protein name</th>
+    <th>Add to database</th>
+  </tr>
+
+  {% for result in amount %}
+
+  <tr>
+    <td>{{ results['results'][result]['primaryAccession'] }}</td>
+    <td>{{ results['results'][result]['uniProtkbId'] }}</td>
+    <td>{{ results['results'][result]['organism']['scientificName'] }}</td>
+    <td>{{ results['results'][result]['proteinDescription']['recommendedName']['fullName']['value'] }}</td>
+    <td><a href="{{ url_for('add_to_database', uniprot_id=results['results'][result]['primaryAccession'],
+     gene_name=results['results'][result]['uniProtkbId'], organism_name=results['results'][result]['organism']['scientificName'],
+     protein_name=results['results'][result]['proteinDescription']['recommendedName']['fullName']['value']) }}" class="button">Add</a></td>
+  </tr>
+
+  {% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, msg in messages %}
+
+                <div class="{{ category }}" role="alert">{{ msg }}</div>
+
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <h1>Find protein in UniProt database</h1>
+    <br>
+    {{ wtf.quick_form(form, novalidate=True) }}
+
+{% endblock %}

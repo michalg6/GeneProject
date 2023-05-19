@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Gene Project</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="static/assets/favicon.ico" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet" />
+    </head>
+    <style>
+</style>
+    <body>
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Gene Project</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ url_for('index') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url_for('search') }}">Search</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tools</a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('database') }}">View</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('compare') }}">Compare</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a>A - Alanine</a>
+    <a>C - Cysteine</a>
+    <a>D - Aspartate</a>
+    <a>E - Glutamate</a>
+    <a>F - Phenylalanine</a>
+    <a>G - Glycine</a>
+    <a>H - Histidine</a>
+    <a>I - Isoleucine</a>
+    <a>K - Lysine</a>
+    <a>L - Leucine</a>
+    <a>M - Methionine</a>
+    <a>N - Asparagine</a>
+    <a>P - Proline</a>
+    <a>Q - Glutamine</a>
+    <a>R - Arginine</a>
+    <a>S - Serine</a>
+    <a>T - Threonine</a>
+    <a>V - Valine</a>
+    <a>W - Tryptophan</a>
+    <a>Y - Tyrosine</a>
+</div>
+
+<div id="main">
+  <button class="openbtn" onclick="openNav()">&#9776; Aminoacids</button>
+</div>
+        <!-- Page content-->
+        <div class="container">
+            <div class="text-center mt-5">
+
+{% block content %}
+{% endblock %}
+
+            </div>
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
+</html>

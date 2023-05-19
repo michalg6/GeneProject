@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>View Dashboard</h1>
+<br>
+
+<table class="center">
+  <tr>
+    <th>Gene ID</th>
+    <th>Gene name</th>
+    <th>Organism name</th>
+    <th>Protein name</th>
+    <th>Sequence</th>
+  </tr>
+  <tr>
+    <td>{{ gene.uniprot_id }}</td>
+    <td>{{ gene.gene_name }}</td>
+    <td>{{ gene.organism_name }}</td>
+    <td>{{ gene.protein_name }}</td>
+    <td class="sequence">{{ gene.fasta }}</td>
+  </tr>
+</table>
+
+
+<div id='chart' class='chart'></div>
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+  var graphs = {{ fig | safe }};
+  Plotly.plot('chart',graphs,{});
+</script>
+
+{% endblock %}
